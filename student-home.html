@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS - Student Dashboard</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f9fa; }
+    nav { background: #2c3e50; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
+    nav .logo { font-size: 20px; font-weight: bold; }
+    nav .user { font-size: 16px; font-weight: bold; }
+    .dashboard { max-width: 1200px; margin: 40px auto; padding: 20px; }
+    .dashboard h1 { color: #2c3e50; margin-bottom: 30px; }
+    .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .course-card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: 0.3s; }
+    .course-card:hover { transform: translateY(-5px); }
+    .course-card h2 { font-size: 20px; margin-bottom: 10px; color: #1abc9c; }
+    .course-card p { font-size: 14px; color: #555; }
+    .course-card button { margin-top: 15px; padding: 10px 20px; background: #1abc9c; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    .course-card button:hover { background: #16a085; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">LMS Dashboard</div>
+    <div class="user" id="studentName">Welcome, Student</div>
+  </nav>
+
+  <div class="dashboard">
+    <h1>Your Courses</h1>
+    <div class="courses">
+      <div class="course-card">
+        <h2>Web Development</h2>
+        <p>Learn HTML, CSS, and JavaScript to build modern websites.</p>
+        <button onclick="subscribeCourse('Web Development')">Start Course</button>
+      </div>
+      <div class="course-card">
+        <h2>Python Programming</h2>
+        <p>Master Python for data science, AI, and automation projects.</p>
+        <button onclick="subscribeCourse('Python Programming')">Start Course</button>
+      </div>
+      <div class="course-card">
+        <h2>AI & Machine Learning</h2>
+        <p>Explore the world of AI with hands-on projects and concepts.</p>
+        <button onclick="subscribeCourse('AI & Machine Learning')">Start Course</button>
+      </div>
+      <div class="course-card">
+        <h2>Cybersecurity Basics</h2>
+        <p>Understand online threats and learn how to protect systems.</p>
+        <button onclick="subscribeCourse('Cybersecurity Basics')">Start Course</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const studentName = localStorage.getItem("studentName") || "Student";
+    document.getElementById("studentName").textContent = "Welcome, " + studentName;
+    function subscribeCourse(courseName) {
+      localStorage.setItem("selectedCourse", courseName);
+      window.location.href = "subscription.html";
+    }
+  </script>
+</body>
+</html>

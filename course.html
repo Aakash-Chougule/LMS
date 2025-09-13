@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS - Course</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f9fa; }
+    nav { background: #2c3e50; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
+    nav .logo { font-size: 20px; font-weight: bold; }
+    nav .user { font-size: 16px; font-weight: bold; }
+    .course-container { max-width: 900px; margin: 40px auto; padding: 20px; }
+    .course-container h1 { margin-bottom: 20px; }
+    .video { margin-bottom: 20px; }
+    video { width: 100%; border-radius: 10px; }
+    .btn { padding: 12px 20px; border: none; border-radius: 6px; font-size: 16px; margin-top: 20px; cursor: pointer; }
+    .btn-primary { background: #1abc9c; color: #fff; }
+    .btn-primary:disabled { background: #95a5a6; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">LMS Course</div>
+    <div class="user" id="studentName">Welcome, Student</div>
+  </nav>
+
+  <div class="course-container">
+    <h1 id="courseTitle">Your Course</h1>
+    <div class="video">
+      <h3>Video 1: Introduction</h3>
+      <video controls id="video1" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+    </div>
+    <div class="video">
+      <h3>Video 2: Lesson</h3>
+      <video controls id="video2" src="https://www.w3schools.com/html/movie.mp4"></video>
+    </div>
+    <button id="assessmentBtn" class="btn btn-primary" disabled onclick="goToAssessment()">Go to Assessment</button>
+  </div>
+
+  <script>
+    const studentName = localStorage.getItem("studentName") || "Student";
+    document.getElementById("studentName").textContent = "Welcome, " + studentName;
+    const courseName = localStorage.getItem("selectedCourse") || "Course";
+    document.getElementById("courseTitle").textContent = courseName;
+
+    let videosWatched = { v1: false, v2: false };
+
+    document.getElementById("video1").addEventListener("ended", () => {
+      videosWatched.v1 = true;
+      checkAllWatched();
+    });
+    document.getElementById("video2").addEventListener("ended", () => {
+      videosWatched.v2 = true;
+      checkAllWatched();
+    });
+
+    function checkAllWatched() {
+      if (videosWatched.v1 && videosWatched.v2) {
+        document.getElementById("assessmentBtn").disabled = false;
+      }
+    }
+
+    function goToAssessment() {
+      window.location.href = "assessment.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS - Payment</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f9fa; }
+    nav { background: #2c3e50; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
+    nav .logo { font-size: 20px; font-weight: bold; }
+    nav .user { font-size: 16px; font-weight: bold; }
+    .payment-box { max-width: 500px; margin: 60px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+    .payment-box h1 { margin-bottom: 20px; color: #2c3e50; }
+    .payment-box input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; }
+    .btn { padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; margin-top: 20px; }
+    .pay-btn { background: #1abc9c; color: #fff; }
+    .pay-btn:hover { background: #16a085; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">LMS Payment</div>
+    <div class="user" id="studentName">Welcome, Student</div>
+  </nav>
+
+  <div class="payment-box">
+    <h1>Course Payment</h1>
+    <p id="courseDesc"></p>
+    <input type="text" placeholder="Card Number">
+    <input type="text" placeholder="MM/YY">
+    <input type="text" placeholder="CVV">
+    <button class="btn pay-btn" onclick="processPayment()">Pay Now</button>
+  </div>
+
+  <script>
+    const studentName = localStorage.getItem("studentName") || "Student";
+    document.getElementById("studentName").textContent = "Welcome, " + studentName;
+    const courseName = localStorage.getItem("selectedCourse") || "Course";
+    document.getElementById("courseDesc").textContent = "Pay securely to access: " + courseName;
+
+    function processPayment() {
+      alert("✅ Payment successful for " + courseName);
+      localStorage.setItem("coursePaid", "true");
+      window.location.href = "course.html";
+    }
+  </script>
+</body>
+</html>

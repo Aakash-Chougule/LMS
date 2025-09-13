@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS - Programs</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+    }
+
+    /* Navigation */
+    nav {
+      background: #2c3e50;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #1abc9c;
+    }
+
+    /* Programs Section */
+    .programs {
+      max-width: 1000px;
+      margin: 60px auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .programs h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .program-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .program-card {
+      flex: 1 1 250px;
+      border: 2px solid #2c3e50;
+      border-radius: 8px;
+      padding: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .program-card:hover {
+      background: #1abc9c;
+      color: #fff;
+      border-color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">LMS</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Programs Section -->
+  <section class="programs">
+    <h1>Our Programs</h1>
+    <div class="program-list">
+      <div class="program-card">Coding for Kids</div>
+      <div class="program-card">STEM Learning</div>
+      <div class="program-card">AI & Robotics</div>
+      <div class="program-card">Digital Literacy</div>
+      <div class="program-card">Math & Science Bootcamp</div>
+      <div class="program-card">Creative Thinking Workshops</div>
+    </div>
+  </section>
+
+</body>
+</html>
